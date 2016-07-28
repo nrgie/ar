@@ -245,6 +245,13 @@ function render() {
 	    
 	    controls.update();
 	    
+	    if ( cam instanceof THREE.Camera === false ) 
+		console.log(cam)
+	    
+	    if ( cam2 instanceof THREE.Camera === false ) 
+		console.log(cam2)
+		
+		
 	    renderer.render(scene2, cam2);
 	    renderer.clearDepth();
 	    renderer.render(scene, cam);
