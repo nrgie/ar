@@ -5,19 +5,6 @@
     <author email="info@3dholostorecard.com" href="http://3dholostorecard.com">nrgie</author>
     <content src="index.html" />
     <icon src="www/img/logo.png" />
-    <icon gap:platform="android" gap:qualifier="ldpi" src="www/img/logo.png" />
-    <icon gap:platform="android" gap:qualifier="mdpi" src="www/img/logo.png" />
-    <icon gap:platform="android" gap:qualifier="hdpi" src="www/img/logo.png" />
-    <icon gap:platform="android" gap:qualifier="xhdpi" src="www/img/logo.png" />
-    <icon gap:platform="blackberry" src="www/img/logo.png" />
-    <icon gap:platform="blackberry" gap:state="hover" src="www/img/logo.png" />
-    <icon gap:platform="ios" height="57" src="www/img/logo.png" width="57" />
-    <icon gap:platform="ios" height="72" src="www/img/logo.png" width="72" />
-    <icon gap:platform="ios" height="114" src="www/img/logo.png" width="114" />
-    <icon gap:platform="ios" height="144" src="www/img/logo.png" width="144" />
-    <icon gap:platform="webos" src="www/img/logo.png" />
-    <icon gap:platform="winphone" src="www/img/logo.png" />
-    <icon gap:platform="winphone" gap:role="background" src="www/img/logo.png" />
     <plugin name="cordova-plugin-inappbrowser" spec="1" />
     <plugin name="cordova-plugin-geolocation" spec="1" />
     <plugin name="com.ezartech.ezar.videooverlay" spec="1" />
