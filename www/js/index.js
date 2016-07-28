@@ -1,6 +1,6 @@
 
 
-	var cam, video, videoTexture, light, controls=false, bor= false;
+	var cam, cam2, video, videoTexture, light, controls=false, bor= false;
 	var earthRotY = 0, moonRotY = 0;
 	var radY = 0, radZ = -0.3;
 	var moonDist = 70;
@@ -132,10 +132,6 @@ var app = {
 		  scene2.add(cam);
 		
 		  revdraw = true;
-		  
-		  
-		  window.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.001, 10000);
-		  
 		  
 	      }, errorCallback);
 	  

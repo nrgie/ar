@@ -1,6 +1,6 @@
 {
   "name": "com.ezartech.ezar.videooverlay",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ezAR VideoOverlay Cordova Plugin. Just to be available from npmjs",
   "main": "index.js",
   "scripts": {

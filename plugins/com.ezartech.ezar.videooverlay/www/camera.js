@@ -25,7 +25,7 @@ var exec = require('cordova/exec'),
  * @param {float} zoom  current magnification level of the camera up 
  * 			to the maxZoom
  */
-var cordCamera = function(ezar,id,position,hasZoom,maxZoom,zoom) {
+var ARCamera = function(ezar,id,position,hasZoom,maxZoom,zoom) {
 	var _ezar,
         _self,
 	    _id,
@@ -194,5 +194,5 @@ function isFunction(f) {
     return typeof f == "function";
 }
 
-module.exports = cordCamera;
+module.exports = ARCamera;
 

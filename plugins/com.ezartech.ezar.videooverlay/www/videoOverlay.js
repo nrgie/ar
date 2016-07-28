@@ -8,7 +8,7 @@
  * @version 0.1.2 
  */
 
-var Camera = require('./camera'),
+var ARCamera = require('./camera'),
     exec = require('cordova/exec'),
     argscheck = require('cordova/argscheck'),
     utils = require('cordova/utils');
@@ -178,9 +178,9 @@ module.exports = (function() {
         var zoom = cameraData.zoom
         var maxZoom = cameraData.maxZoom;
         var hasZoom = maxZoom > 0;
-        var camera = new Camera(_ezAR,id,position,hasZoom,maxZoom,zoom);
+        var arcamera = new ARCamera(_ezAR,id,position,hasZoom,maxZoom,zoom);
                   
-        return camera;
+        return arcamera;
     }
                   
     function initCameras(deviceData) {
