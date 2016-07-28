@@ -217,7 +217,7 @@ var app = {
 	    loader.load('http://op.genesisgo.us/ar/3d/bor.dae', function ( collada ) { 
 		  bor = collada.scene;
 		  bor.position.z = -13;
-		  bor.position.y = -2;
+		  bor.position.y = -4;
 		  bor.scale.set(0.5,0.5,0.5);
 		  scene.add(bor); 
 	    });
