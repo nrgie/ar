@@ -254,8 +254,8 @@ function render() {
 		console.log(cam2)
 		
 		
-	    renderer.render(scene2, cam2);
-	    renderer.clearDepth();
+	    //renderer.render(scene2, cam2);
+	    //renderer.clearDepth();
 	    renderer.render(scene, cam);
 	    
 	    
