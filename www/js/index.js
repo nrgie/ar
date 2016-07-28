@@ -1,6 +1,6 @@
 
 
-	var scene, cam, renderer, light, controls=false, bor= false;
+	var cam, video, videoTexture, light, controls=false, bor= false;
 	var earthRotY = 0, moonRotY = 0;
 	var radY = 0, radZ = -0.3;
 	var moonDist = 70;
@@ -11,8 +11,20 @@
 	var lastPos, diffMove, lastEarthScale;
 	var ping = 0;
 	var clock = new THREE.Clock();
-
+	var hdConstraints={audio:false,video:{mandatory: {maxWidth: 720,maxHeight: 720}}};    
 	
+	
+	var scene = new THREE.Scene();
+	var scene2 = new THREE.Scene();
+	var revdraw = false;
+	
+	
+	navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+	function errorCallback(e) {
+	      console.log("Can't access user media", e);
+	}
+	
+	window.URL = window.URL || window.webkitURL;
 	
 
 	
@@ -48,7 +60,6 @@ var app = {
 	    }, 'json');
         };
 
-        
         function geoSuccess(position) {
             app.geo.lat = position.coords.latitude;
             app.geo.lng = position.coords.longitude;
@@ -64,18 +75,47 @@ var app = {
 
     receivedEvent: function(id) {
 	
-	if (window.ezar) {
-            ezar.initializeVideoOverlay(function(){ ezar.getBackCamera().start(); }, function(err) { alert('unable to init camera: ' + err); });
+      
+	if(cordova.platformId.match(/droid/ig)) {
+	  
+	      navigator.getUserMedia(hdConstraints, function(stream){
+		  
+		  video = document.createElement('video');
+		  video.src = window.URL.createObjectURL(stream);
+		  video.onclick = function() { video.play(); };
+		  video.play();  
+		  video.width    = 720;
+		  video.height   = 720;
+		  video.autoplay = true;
+		
+		  videoTexture = new THREE.Texture(video);
+		  
+		  var camGeometry = new THREE.PlaneGeometry(20,20,1,1);
+		  var camMaterial = new THREE.MeshLambertMaterial({ map : videoTexture });
+		  cam = new THREE.Mesh(camGeometry, camMaterial);
+		  cam.position.y = 0;
+		  cam.position.z = -2;
+	      
+		  scene2.add(cam);
+		
+		  revdraw = true;
+		  
+	      }, errorCallback);
+	  
 	} else {
-	    //alert('Unable to detect the camera plugin');
-        }
+	    if (window.ezar) {
+		ezar.initializeVideoOverlay(function(){ ezar.getBackCamera().start(); }, function(err) { alert('unable to init camera: ' + err); });
+	    } else {
+		//alert('Unable to detect the camera plugin');
+	    }
+	}
         
-        
-        
-        
-        
-        scene = new THREE.Scene();
-	cam = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.001, 10000 );
+	cam = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.001, 10000);
+	cam2 = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.001, 10000);
+	cam2.position.set(0,0,3);
+	cam2.lookAt(scene2.position);
+	
+	scene2.add(cam2);
 	
 	scene.add(cam);
         
@@ -88,7 +128,8 @@ var app = {
 	    var opts = { alpha: true };
 	    renderer = webglAvailable() ? new THREE.WebGLRenderer(opts) : new THREE.CanvasRenderer(opts);
 	    renderer.setSize(window.innerWidth, window.innerHeight);
-	    document.body.appendChild(renderer.domElement);
+	    
+	    $('.app').html(renderer.domElement);
 	    
 	    element = renderer.domElement;
 	    controls = new THREE.VRControls(cam);
@@ -131,6 +172,7 @@ var app = {
 	    loader.load('http://op.genesisgo.us/ar/3d/bor.dae', function ( collada ) { 
 		  bor = collada.scene;
 		  bor.position.z = -13;
+		  bor.position.y = -2;
 		  bor.scale.set(0.5,0.5,0.5);
 		  scene.add(bor); 
 	    });
@@ -150,6 +192,12 @@ function render() {
   
 	    requestAnimationFrame(render);
   
+	    if(video) {
+		if(video.readyState === video.HAVE_ENOUGH_DATA) {
+		    videoTexture.needsUpdate = true;
+		}
+	    }
+	    
 	    dodecahedron.rotation.x += 0.01;
 	    dodecahedron.rotation.y += 0.005;
 	    tetrahedron.rotation.x += 0.01;
@@ -163,7 +211,11 @@ function render() {
 	    bor.rotation.y += 0.01;
 	    
 	    controls.update();
+	    
+	    renderer.render(scene2, cam2);
+	    renderer.clearDepth();
 	    renderer.render(scene, cam);
+	    
 	    
 	    
 }
