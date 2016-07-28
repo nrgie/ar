@@ -125,11 +125,11 @@ var app = {
 		  
 		  var camGeometry = new THREE.PlaneGeometry(20,20,1,1);
 		  var camMaterial = new THREE.MeshLambertMaterial({ map : videoTexture });
-		  cam = new THREE.Mesh(camGeometry, camMaterial);
-		  cam.position.y = 0;
-		  cam.position.z = -2;
+		  camMesh = new THREE.Mesh(camGeometry, camMaterial);
+		  camMesh.position.y = 0;
+		  camMesh.position.z = -2;
 	      
-		  scene2.add(cam);
+		  scene2.add(camMesh);
 		
 		  revdraw = true;
 		  
