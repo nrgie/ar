@@ -81,6 +81,9 @@ var app = {
 	    app.igeo.lat = lat;
             app.igeo.lng = lng;
 	    
+	    console.log("init : " + lat + " | " + lng);
+	    
+	    
 	    $.get('http://op.genesisgo.us/ar/geomap.php', {lat:lat, lng:lng}, function(d) {
 		 app.geomap = d;
 	    }, 'json');
@@ -93,6 +96,10 @@ var app = {
             app.geo.lng = position.coords.longitude;
 	    
 	    app.geo.distance = app.distance(app.geo.lat, app.geo.lng);
+	    
+	    console.log("geo : " + app.geo.lat + " | " + app.geo.lng);
+	    
+	    
 	    
 	    $('.geodist').text("Distance : " + app.geo.distance + " m");
 	    
