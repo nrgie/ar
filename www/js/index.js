@@ -71,7 +71,11 @@ var app = {
       
 	navigator.geolocation.getCurrentPosition(initGeoSuccess, geoError, { enableHighAccuracy: true });
       
-	app.watchID = navigator.geolocation.watchPosition(geoSuccess, geoError, { enableHighAccuracy: true });
+	//app.watchID = navigator.geolocation.watchPosition(geoSuccess, geoError, { enableHighAccuracy: true });
+	
+	setInterval(function(){
+	    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, { enableHighAccuracy: true });
+	}, 5000);
 	
 	function initGeoSuccess(position) {
 	  
@@ -98,8 +102,6 @@ var app = {
 	    app.geo.distance = app.distance(app.geo.lat, app.geo.lng);
 	    
 	    console.log("geo : " + app.geo.lat + " | " + app.geo.lng);
-	    
-	    
 	    
 	    $('.geodist').text("Distance : " + app.geo.distance + " m");
 	    
