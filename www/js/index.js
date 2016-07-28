@@ -133,6 +133,10 @@ var app = {
 		
 		  revdraw = true;
 		  
+		  
+		  window.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.001, 10000);
+		  
+		  
 	      }, errorCallback);
 	  
 	} else {
