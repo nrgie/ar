@@ -49,7 +49,7 @@ var app = {
 
 	return d*1000; // in meter.
 	
-    }
+    },
   
 
     initialize: function() {
@@ -96,11 +96,11 @@ var app = {
 	    
 	    $('.geodist').text("Distance : " + app.geo.distance + " m");
 	    
-        }
+        };
         
 	function geoError(error) {
             console.log('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
-        }
+        };
 	
         app.receivedEvent('deviceready');
 	//var ref = window.open('http://op.genesisgo.us/vcard/', '_self', 'location=no');
