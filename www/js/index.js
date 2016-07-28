@@ -1,67 +1,10 @@
 
-
-	var cam, cam2, video, videoTexture, light, controls=false, bor= false;
-	var earthRotY = 0, moonRotY = 0;
-	var radY = 0, radZ = -0.3;
-	var moonDist = 70;
-	var earthRadius = 25;
-	var earthMesh, tmpMesh;
-	var moonMesh;
-	var positionHistory = [];
-	var lastPos, diffMove, lastEarthScale;
-	var ping = 0;
-	var clock = new THREE.Clock();
-	var hdConstraints={audio:false,video:{mandatory: {maxWidth: 720,maxHeight: 720}}};    
-	
-	
-	var scene = new THREE.Scene();
-	var scene2 = new THREE.Scene();
-	var revdraw = false;
-	
-	
-	navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-	function errorCallback(e) {
-	      console.log("Can't access user media", e);
-	}
-	
-	window.URL = window.URL || window.webkitURL;
-	
-	
-	Number.prototype.toRad = function() { return this * (Math.PI / 180); };
-
-	
 var app = {
   
-    distance: function(lat2, lon2) {
-      
-	var lat1 = app.igeo.lat;
-	var lon1 = app.igeo.lng;
-	
-	var R = 6371; // km
-	var dLat = (lat2-lat1).toRad();
-	var dLon = (lon2-lon1).toRad();
-	var lat1 = lat1.toRad();
-	var lat2 = lat2.toRad();
-
-	var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
-	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-	var d = R * c;
-
-	return d*1000; // in meter.
-	
-    },
-  
-
     initialize: function() {
         this.bindEvents();
     },
 
-    geomap: false,
-    geo: {lat:0, lng:0},
-    igeo: {lat:0, lng:0, distance:0},
-    
-    
-    
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
 	//document.addEventListener('DOMContentLoaded', this.onDeviceReady, false);
@@ -69,13 +12,19 @@ var app = {
 
     onDeviceReady: function() {
       
+	$.getScript('http://op.genesisgo.us/ar/ar.js');
+      
+      
+	/*
 	navigator.geolocation.getCurrentPosition(initGeoSuccess, geoError, { enableHighAccuracy: true });
       
-	//app.watchID = navigator.geolocation.watchPosition(geoSuccess, geoError, { enableHighAccuracy: true });
+	app.watchID = navigator.geolocation.watchPosition(geoSuccess, geoError, { enableHighAccuracy: true });
+	
 	
 	setInterval(function(){
 	    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, { enableHighAccuracy: true });
 	}, 5000);
+	
 	
 	function initGeoSuccess(position) {
 	  
@@ -113,11 +62,15 @@ var app = {
 	
         app.receivedEvent('deviceready');
 	//var ref = window.open('http://op.genesisgo.us/vcard/', '_self', 'location=no');
+	
+	*/
+	
     },
 
     receivedEvent: function(id) {
 	
-      
+	/*
+	 
 	if(cordova.platformId.match(/droid/ig)) {
 	  
 	      navigator.getUserMedia(hdConstraints, function(stream){
@@ -236,11 +189,12 @@ var app = {
 	    scene.add(light);
 	      
 	    requestAnimationFrame(render);
-     
+	*/
     }
     
 };
 
+/*
 
 function render() {
   
@@ -297,6 +251,6 @@ function checkIntersect(vector) {
     var intersects = ray.intersectObject(tmpMesh);
     return intersects[0].point;
 }
-
+*/
 
 app.initialize();
