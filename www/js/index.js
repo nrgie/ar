@@ -122,6 +122,8 @@ var app = {
 		  video.autoplay = true;
 		
 		  videoTexture = new THREE.Texture(video);
+		  videoTexture.minFilter = THREE.LinearFilter;
+		  
 		  
 		  var camGeometry = new THREE.PlaneGeometry(20,20,1,1);
 		  var camMaterial = new THREE.MeshLambertMaterial({ map : videoTexture });
