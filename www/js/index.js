@@ -164,6 +164,16 @@ var app = {
 	    renderer = webglAvailable() ? new THREE.WebGLRenderer(opts) : new THREE.CanvasRenderer(opts);
 	    renderer.setSize(window.innerWidth, window.innerHeight);
 	    
+	    renderer.setFaceCulling( THREE.CullFaceNone );
+	    renderer.autoClear = false;
+	    renderer.shadowMapCullFrontFaces = false;
+    
+	
+	    
+	    
+	    
+	    
+	    
 	    $('.app').html(renderer.domElement);
 	    
 	    element = renderer.domElement;
@@ -254,8 +264,8 @@ function render() {
 		console.log(cam2)
 		
 		
-	    //renderer.render(scene2, cam2);
-	    //renderer.clearDepth();
+	    renderer.render(scene2, cam2);
+	    renderer.clearDepth();
 	    renderer.render(scene, cam);
 	    
 	    
