@@ -39,8 +39,8 @@ var app = {
 	
 	function initGeoSuccess(position) {
 	  
-            var lat = pos.coords.latitude;
-            var lng = pos.coords.longitude;
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
             //alert("lat : " + lat + " lng : " + lng);
 	    
 	    $.get('http://op.genesisgo.us/ar/geomap.php', {lat:lat, lng:lng}, function(d) {
@@ -50,8 +50,8 @@ var app = {
 
         
         function geoSuccess(position) {
-            app.geo.lat = pos.coords.latitude;
-            app.geo.lng = pos.coords.longitude;
+            app.geo.lat = position.coords.latitude;
+            app.geo.lng = position.coords.longitude;
         }
         
 	function geoError(error) {
