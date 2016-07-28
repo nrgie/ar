@@ -4,6 +4,7 @@
     <description>3D Holostorecard official app</description>
     <author email="info@3dholostorecard.com" href="http://3dholostorecard.com">nrgie</author>
     <content src="index.html" />
+    <icon src="www/img/logo.png" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-inappbrowser" spec="1" />
     <plugin name="cordova-plugin-geolocation" spec="1" />
