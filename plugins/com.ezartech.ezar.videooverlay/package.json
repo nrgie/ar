@@ -1,0 +1,11 @@
+{
+  "name": "com.ezartech.ezar.videooverlay",
+  "version": "1.0.2",
+  "description": "ezAR VideoOverlay Cordova Plugin. Just to be available from npmjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tibor Sulyok <nrgie11@gmail.com> (http://yoursite.com)",
+  "license": "ISC"
+}
