@@ -8,6 +8,7 @@
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-geolocation"  />
     <plugin name="cordova-plugin-whitelist" />
+    <plugin name="cordova-plugin-local-notifications" />
     <plugin name="com.ezartech.ezar.videooverlay" />
     <plugin name="cordova-plugin-mauron85-background-geolocation" />
     <access origin="*" />
