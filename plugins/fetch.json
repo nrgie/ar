@@ -39,5 +39,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "org.flybuy.cordova.background-location-services": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pmwisdom/cordova-background-geolocation-services.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
