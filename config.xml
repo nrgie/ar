@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.holostorecard.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>3DHoloStore AR extension</name>
-    <description>3D Holostorecard AR extension</description>
+    <name>3DHoloStore AR</name>
+    <description>3D Holostorecard AR</description>
     <author email="info@3dholostorecard.com" href="http://3dholostorecard.com">nrgie</author>
     <content src="index.html" />
     <icon src="www/img/logo.png" />
     <plugin name="cordova-plugin-inappbrowser" spec="1" />
     <plugin name="cordova-plugin-geolocation" spec="1" />
-    <plugin name="cordova-background-location-services" spec="1" source="pgb" />
     <plugin name="com.ezartech.ezar.videooverlay" spec="1" />
+    <plugin spec="https://github.com/dpa99c/cordova-background-geolocation-services#1.0.4" source="git" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
