@@ -43,7 +43,7 @@
     "org.flybuy.cordova.background-location-services": {
         "source": {
             "type": "git",
-            "url": "https://github.com/pmwisdom/cordova-background-geolocation-services.git",
+            "url": "https://github.com/dpa99c/cordova-background-geolocation-services",
             "subdir": "."
         },
         "is_top_level": true,

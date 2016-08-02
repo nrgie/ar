@@ -7,7 +7,7 @@
     <icon src="www/img/logo.png" />
     <plugin name="cordova-plugin-inappbrowser" spec="1" />
     <plugin name="cordova-plugin-geolocation" spec="1" />
-    <plugin name="cordova-background-location-services" spec="1" />
+    <plugin name="cordova-background-location-services" spec="1" source="pgb" />
     <plugin name="com.ezartech.ezar.videooverlay" spec="1" />
     <access origin="*" />
     <allow-navigation href="*" />
