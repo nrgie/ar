@@ -5,9 +5,9 @@
     <author email="info@3dholostorecard.com" href="http://3dholostorecard.com">nrgie</author>
     <content src="index.html" />
     <icon src="www/img/logo.png" />
-    <plugin name="cordova-plugin-inappbrowser" spec="1" />
-    <plugin name="cordova-plugin-geolocation" spec="1" />
-    <plugin name="com.ezartech.ezar.videooverlay" spec="1" />
+    <plugin name="cordova-plugin-inappbrowser" />
+    <plugin name="cordova-plugin-geolocation"  />
+    <plugin name="com.ezartech.ezar.videooverlay" />
     <plugin name="cordova-plugin-mauron85-background-geolocation" />
     <access origin="*" />
     <allow-navigation href="*" />
