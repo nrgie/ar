@@ -8,7 +8,7 @@
     <plugin name="cordova-plugin-inappbrowser" spec="1" />
     <plugin name="cordova-plugin-geolocation" spec="1" />
     <plugin name="com.ezartech.ezar.videooverlay" spec="1" />
-    <plugin spec="https://github.com/dpa99c/cordova-background-geolocation-services#1.0.4" source="git" />
+    <plugin spec="https://github.com/dpa99c/cordova-background-geolocation-services" source="git" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
